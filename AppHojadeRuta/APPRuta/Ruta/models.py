@@ -20,13 +20,13 @@ class Movil(models.Model):
     Matricula = models.CharField("Matricula",max_length=50)
     nombre=models.CharField("nombre",max_length=50)
     apellido=models.CharField("apellido",max_length=50)
-    legajo=models.IntegerField
+    legajo=models.IntegerField("legajo",unique=True)
     def __str__(self) -> str:
         return f"{self.legajo}"
 
 class Cliente(models.Model):
-    pedido = models.IntegerField()#(pedido)
-    nro_de_cliente=models.IntegerField()
+    pedido = models.IntegerField("Nro de pedido",unique=True)#(pedido)
+    nro_de_cliente=models.IntegerField("Nro de cliente",unique=True)
     direccion=models.CharField("Direccion",max_length=50)
     Contacto=models.CharField("Contacto",max_length=50)
     nombre=models.CharField("nombre",max_length=50)
@@ -42,8 +42,9 @@ class Base(models.Model):
 
 
 class Pedido(models.Model):
-    numero=models.IntegerField()
+    numero=models.IntegerField("Numero",unique=True)
     Estado=models.BooleanField()
-    fechadeentrega=models.DateField()
+    fechadeentrega=models.DateField("entrega",auto_now=False, auto_now_add=False, blank=True, null=True)
+    fechadecreacion=models.DateField("creacion",auto_now=False, auto_now_add=False, blank=True, null=True)
     def __str__(self)->str:
         return f"{self.numero}"
