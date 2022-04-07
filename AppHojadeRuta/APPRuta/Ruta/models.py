@@ -33,8 +33,8 @@ class Base(models.Model):
     Cant_moviles=models.CharField("CantidadMovil",max_length=50)
     Cant_pedidos=models.CharField("CantidadPedidos",max_length=50)
     Contacto=models.CharField("NumerodeContacto",max_length=50)
-    pedido=models.IntegerField()
 
-class Hoja_de_Ruta(models.Model):
-    pedido=models.IntegerField()
-    Estado=models.CharField("Estado",max_length=50)
+class Pedido(models.Model):
+    numero=models.IntegerField()
+    Estado=models.BooleanField()
+    fechadeentrega=models.DateField()
