@@ -15,26 +15,35 @@ from django.db import models
 #Intento con 3 modelos primero
 
 class Movil(models.Model):
-    Estado = models.CharField("Estado",max_length=50)
+    Estado = models.BooleanField()
     Tipo = models.IntegerField("Tipo")#camioneta/camion/auto
     Matricula = models.CharField("Matricula",max_length=50)
     nombre=models.CharField("nombre",max_length=50)
     apellido=models.CharField("apellido",max_length=50)
+    legajo=models.IntegerField
+    def __str__(self) -> str:
+        return f"{self.legajo}"
 
 class Cliente(models.Model):
     pedido = models.IntegerField()#(pedido)
+    nro_de_cliente=models.IntegerField()
     direccion=models.CharField("Direccion",max_length=50)
     Contacto=models.CharField("Contacto",max_length=50)
     nombre=models.CharField("nombre",max_length=50)
     apellido=models.CharField("apellido",max_length=50)
+    def __str__(self) -> str:
+        return f"{self.nro_de_cliente}"
 
 class Base(models.Model):
-    Estado=models.CharField("Estado",max_length=50)
+    Estado=models.BooleanField()
     Cant_moviles=models.CharField("CantidadMovil",max_length=50)
     Cant_pedidos=models.CharField("CantidadPedidos",max_length=50)
     Contacto=models.CharField("NumerodeContacto",max_length=50)
+
 
 class Pedido(models.Model):
     numero=models.IntegerField()
     Estado=models.BooleanField()
     fechadeentrega=models.DateField()
+    def __str__(self)->str:
+        return f"{self.numero}"
