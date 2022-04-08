@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import Cliente , Base , Pedido ,Movil, Inicio, Clienteformulario, Movilformulario,Pedidoformulario
+from .views import BuscarC, BuscarM, BuscarP, Cliente , Base , Pedido ,Movil, Inicio, clienteformulario, movilformulario,pedidoformulario,busquedaPedido,busquedaCliente,busquedaMovil
 
 
 urlpatterns = [
@@ -8,7 +8,14 @@ urlpatterns = [
     path('Base/', Base, name="Base") ,
     path('Pedido/', Pedido, name="Pedido") ,
     path('Movil/', Movil, name="Movil"),
-    path('Clienteformulario/', Clienteformulario, name="Clienteformulario"),
-    path('Movilformulario/', Movilformulario, name="Movilformulario"),
-    path('Pedidoformulario/', Pedidoformulario, name="Pedidoformulario"),
+    path('Clienteformulario/', clienteformulario, name="Clienteformulario"),
+    path('Movilformulario/', movilformulario, name="Movilformulario"),
+    path('Pedidoformulario/', pedidoformulario, name="Pedidoformulario"),
+    path('Movil/', Movil, name="Movil"),
+    path('busquedaMovil/', busquedaMovil, name="busquedaMovil"),
+    path('busquedaCliente/', busquedaCliente, name="busquedaCliente"),
+    path('busquedaPedido/', busquedaPedido, name="busquedaPedido"),
+    path('buscarM/', BuscarM),
+    path('buscarC/', BuscarC),
+    path('buscarP/', BuscarP),
     ]
