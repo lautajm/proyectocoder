@@ -3,11 +3,14 @@
 {%load static%}
 
 {%block bloqueQuecambia%}
-<h1>PEDIDOS</h1>
-<h3>Datos 
-    
-    
-</h3>
+<h1>Datos del Pedido</h1>
+
+<h3>Estos son los pedidos registrados {{nro_Pedido}}</h3>
+    {% for pedido in Pedidos%}
+
+    <li>{{Pedido}}</li>
+
+    {%endfor%}
 
 
 

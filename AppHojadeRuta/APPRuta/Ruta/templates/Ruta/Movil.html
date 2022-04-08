@@ -3,13 +3,14 @@
 {%load static%}
 
 {%block bloqueQuecambia%}
-<h1>Movil</h1>
-<h3>Datos 
-    
-    
-</h3>
+<h1>Datos del Movil</h1>
 
+<h3>Estos son los moviles registrados {{legajo}}</h3>
+    {% for legajo in legajos%}
 
+    <li>{{legajo}}</li>
+
+    {%endfor%}
 
 
 {%endblock bloqueQuecambia%}

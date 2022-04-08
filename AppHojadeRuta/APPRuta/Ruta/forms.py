@@ -4,7 +4,7 @@ from django import forms
 class Clienteformulario(forms.Form):
     nombre=forms.CharField(max_length=50)
     apellido=forms.CharField(max_length=50)
-    contacto= forms.CharField()
+    Contacto= forms.IntegerField()
     pedido=forms.IntegerField()
     cliente=forms.IntegerField()
     domicilio=forms.CharField(max_length=50)

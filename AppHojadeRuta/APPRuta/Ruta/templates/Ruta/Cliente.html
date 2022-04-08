@@ -5,11 +5,14 @@
 {%load static%}
 
 {%block bloqueQuecambia%}
-<h1>Clientes</h1>
-<h3>Datos
-    from 
-    
-</h3>
+<h1>Datos del Cliente</h1>
+
+<h3>Estos son los clientes registrados {{nro_de_cliente}}</h3>
+    {% for cliente in clientes%}
+
+    <li>{{cliente}}</li>
+
+    {%endfor%}
 
 
 
