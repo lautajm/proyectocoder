@@ -39,30 +39,30 @@ def clienteformulario(request):
 
 def pedidoformulario(request):
     if request.method =="POST":
-        miFormulario=Pedidoformulario(request.POST)
-        print(miFormulario)
-        if miFormulario.is_valid:
-            informacion = miFormulario.cleaned_data
+        miFormulario2=Pedidoformulario(request.POST)
+        print(miFormulario2)
+        if miFormulario2.is_valid:
+            informacion = miFormulario2.cleaned_data
             pedido=Pedido(numero=informacion["numero"] ,Estado=informacion["Estado"])
             pedido.save()
         return render(request, 'Ruta/Inicio.html')
     else:
-        miFormulario= Pedidoformulario()
-    return render(request, "Ruta/Pedidoformulario.html",{"miFormulario":miFormulario})
+        miFormulario2= Pedidoformulario()
+    return render(request, "Ruta/Pedidoformulario.html",{"miFormulario2":miFormulario2})
 
 
 def movilformulario(request):
     if request.method =="POST":
-        miFormulario=Movilformulario(request.POST)
-        print(miFormulario)
-        if miFormulario.is_valid:
-            informacion = miFormulario.cleaned_data
+        miFormulario3=Movilformulario(request.POST)
+        print(miFormulario3)
+        if miFormulario3.is_valid:
+            informacion = miFormulario3.cleaned_data
             movil=Movil (nombre=informacion["nombre"] ,apellido=informacion["apellido"],matricula=informacion["nro de matricula"],legajo=["nro de legajo"],tipo=["tipo de automovil"],estado=["Estado"])
             movil.save()
         return render(request, 'Ruta/Inicio.html')
     else:
-        miFormulario= Movilformulario()
-    return render(request, "Ruta/Movilformulario.html",{"miFormulario":miFormulario})
+        miFormulario3= Movilformulario()
+    return render(request, "Ruta/Movilformulario.html",{"miFormulario3":miFormulario3})
 
 def busquedaMovil(request):
 
@@ -94,7 +94,7 @@ def BuscarC(request):
         return HttpResponse(f"No enviaste el numero del cliente")
 
 def BuscarP(request):
-    if request.GET["nro de cliente"]:
+    if request.GET["nro de pedido"]:
         numero=request.GET["numero"]
         Estado=Cliente.objects.filter(numero=numero)
 
